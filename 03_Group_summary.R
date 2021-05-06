@@ -11,6 +11,7 @@ mtc <- within(mtcars,
                                       'Manual')))
 head(mtc)
 
+# 그룹별 데이터 출력
 g <- split(x=mtc$mpg, f=mtc$am)
 g # 리스트 형태로 리턴
 
@@ -52,6 +53,7 @@ with(mtcars, tapply(mpg, list(Cyl=cyl, Trans=am), FUN = mean))
 # df형태로 리턴해줌
 
 a = with(mtcars, aggregate(x=mpg, by=list(Cyl=cyl, Trans=am), FUN=mean))
+a
 class(a)
 
 head(mtcars)
@@ -67,8 +69,10 @@ aggregate(iris[1:4], list(Spec=iris$Species), FUN = mean) # by인자에는 하�
 
 by(data=iris, INDICES = iris$Species, FUN = summary) 
 
-by(iris, iris$Species, FUN = function(x){mean(x$Sepal.Length)})
-
+b = by(iris, iris$Species, FUN = function(x){mean(x$Sepal.Length)})
+b
+class(b) # by
+class(b[1]) # numeric
 table(mtcars$gear) # 범주데이터 주면 범주별 빈도 출력
 table(am=mtcars$am, gear=mtcars$gear)
 

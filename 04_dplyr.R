@@ -1,20 +1,31 @@
 
 # dplyr 패키지 -> 분할, 적용, 결합
 
-# 5가지 기본함수 arrange, filter, select, mutate, summaries
+# 5가지 기본함수 
+# arrange = 지정한 열기준 소팅
+# filter = 조건에 맞는 행 출력  
+# select = 원하는 열 추출
+# rename = 열 이름 바꾸기
+# mutate = 새로운 열 추가
+# summaries = 요약통계량
 
+# n_distict = unique함수 기능
+# sample_n / sample_frac = 샘플링
+
+# group_by = 확장 데이터프레임화
+# %>% = 파이프 연산자, 첫 파라미터에 아웃풋을 전달
 
 head(airquality)
 
 library(dplyr)
 
-air.6 <- filter(airquality, Month==6) # 조건에 맞는 행출력력
+air.6 <- filter(airquality, Month==6) # 조건에 맞는 행출력
 air.6
 airquality[airquality$Month==6, ]
 subset(airquality, subset = (Month==6))
 
 
-air.and <- filter(airquality, Month==6 & Temp > 90) # 조건에 맞는 행출력력
+air.and <- filter(airquality, Month==6 & Temp > 90) # 조건에 맞는 행출력
 air.and
 
 air.or <- filter(airquality, Month==6 | Temp > 90)
@@ -25,7 +36,6 @@ air.or
 slice(airquality, 6:10) # 특정 행번호 추출
 slice(airquality, n()) # 마지막 행 출력
 slice(airquality, (n()-4):n()) # tail같은 효과 응용
-
 
 
 # 지정한 열기준 오름차순 소팅
