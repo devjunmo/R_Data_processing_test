@@ -11,10 +11,10 @@ mtcars[['mpg']] # 벡터 출력
 mtcars['mpg'] # 데이터 프레임 출력 
 mtcars[[1]] # 벡터출력 
 
-mtcars[c(1, 4)]
-mtcars[c('mpg', 'hp')]
-mtcars[, 1:2]
-
+mtcars[c(1, 4)] # df 출력
+mtcars[c('mpg', 'hp')] # df 출력
+mtcars[, 1:2] # df 출력
+ 
 mtcars[-c(2, 3, 5, 7:11)] # 제외
 mtcars[-1] # 1열 제외
 
@@ -93,6 +93,49 @@ str(airquality)
 complete.cases(airquality) # df의 각 행에 NA 있으면 False 리턴
 airquality.rm.NA <- airquality[complete.cases(airquality), ]
 str(airquality.rm.NA)
+
+
+## na.omit 활용하여 결측값 제거
+qa.rm.na2 <- na.omit(airquality)
+str(qa.rm.na2)
+
+
+
+# 구간별 그룹화하여 서브셋
+
+## cut함수
+
+cut(x=iris$Sepal.Width, breaks=c(0, 1, 2, 3, 4, 5)) # breaks에 구간 지정
+
+cut(x=iris$Sepal.Width, breaks=5) # breaks에 임의로 5구간 나눠줌줌
+
+iris.cut <- cut(x=iris$Sepal.Width, breaks=5)
+
+table(iris.cut)
+summary(iris.cut)
+
+### cut함수에 레이블 주기
+iris.cut <- cut(x=iris$Sepal.Width, breaks=5,
+                labels = c('smaller', 'small', 'medium', 'big', 'bigger'))
+
+iris.cut
+table(iris.cut)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
