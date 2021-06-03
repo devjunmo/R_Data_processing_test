@@ -37,7 +37,6 @@ slice(airquality, 6:10) # 특정 행번호 추출
 slice(airquality, n()) # 마지막 행 출력
 slice(airquality, (n()-4):n()) # tail같은 효과 응용
 
-
 # 지정한 열기준 오름차순 소팅
 arrange(airquality, Temp, Month, Day) # Temp에서 동률뜨면 Month, Day순으로 결정정
 
