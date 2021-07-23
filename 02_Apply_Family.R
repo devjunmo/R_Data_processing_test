@@ -14,6 +14,10 @@ apply(x, MARGIN = 1, FUN = max) # MARGIN=1: 행별
 ## 열별 최소값 출력 
 apply(x, MARGIN = 2, FUN = min) # MARGIN=2: 열별
 
+x[,2]
+
+apply(x[,2], FUN = max)
+
 
 y <- array(1:24, c(4, 3, 2))
 y
