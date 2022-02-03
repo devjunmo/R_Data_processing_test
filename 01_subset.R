@@ -125,7 +125,7 @@ table(iris.cut)
 
 
 
-
+for(i in )
 
 
 
